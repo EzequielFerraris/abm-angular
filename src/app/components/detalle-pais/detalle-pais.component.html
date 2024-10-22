@@ -1,0 +1,28 @@
+@if(this.veterinario_seleccionado["nombre"])
+{
+    @for(pais of lista_paises; track $index)
+    {
+        @if(pais.translations.spa.official == veterinario_seleccionado.pais)
+        {
+            <div class="mx-auto max-w-sm
+                    bg-white border border-gray-200 
+                        rounded-lg shadow dark:bg-gray-800 dark:border-gray-700
+                        my-8">
+                <a href="#">
+                    <img class="rounded-t-lg" 
+                        src="{{pais.flags.png}}" 
+                        alt="" 
+                        class="max-w-[300px] mx-auto mt-5 p-10"/>
+                </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight 
+                                text-gray-900 dark:text-white">
+                            {{pais.translations.spa.official}}
+                        </h5>
+                    </a>
+                </div>
+            </div> 
+        }
+    }   
+}

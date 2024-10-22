@@ -1,0 +1,23 @@
+@if(this.veterinario_seleccionado["nombre"])
+{
+        <div class="mx-auto max-w-sm
+                  bg-white border border-gray-200 
+                    rounded-lg shadow dark:bg-gray-800 dark:border-gray-700
+                    my-8">
+            
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight 
+                             text-gray-900 dark:text-white">
+                        {{this.veterinario_seleccionado.nombre}}
+                    </h5>
+                </a>
+                <ul class="text-start">
+                    <li><span class="font-bold">DOCUMENTO: </span>{{this.veterinario_seleccionado.dni}}</li>
+                    <li><span class="font-bold">EDAD: </span>{{this.veterinario_seleccionado.edad}}</li>
+                    <li><span class="font-bold">MATRICULA: </span>{{this.veterinario_seleccionado.matricula}}</li>
+                    <li><span class="font-bold">PAIS: </span>{{this.veterinario_seleccionado.pais}}</li>
+                </ul>
+            </div>
+        </div>    
+}

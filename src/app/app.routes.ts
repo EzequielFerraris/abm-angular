@@ -11,5 +11,10 @@ export const routes: Routes = [
         component: AltaVeterinarioComponent,
         data: {midata: "datos de ruta"},
         canActivate: [loggedGuard]
-      }
+    },
+    { path: 'veterinarios', 
+        loadComponent: () => import('./components/veterinarios/veterinarios.component')
+        .then(b => b.VeterinariosComponent),
+        canActivate: [loggedGuard]
+    },
 ];

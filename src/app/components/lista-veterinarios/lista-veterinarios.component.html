@@ -1,0 +1,24 @@
+
+@for(veterinario of lista_veterinarios; track indice; let indice = $index)
+{
+
+    <div
+      role="button"
+      class="text-white hover:text-black flex w-full items-center 
+                rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100
+                active:bg-slate-100"
+      (click)="elegir_veterinario(veterinario)"
+    >
+      
+      <div class="mr-4 grid place-items-center">
+             
+      </div>
+      <div>
+        <h6 class="font-small">
+          {{ veterinario.nombre }}
+        </h6>
+      </div>
+    
+    </div>
+    
+}
