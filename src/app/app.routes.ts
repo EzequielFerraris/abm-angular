@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { AltaVeterinarioComponent } from './components/alta-veterinario/alta-veterinario.component';
 import { loggedGuard } from './guards/logged.guard';
+import { adminGuard } from './guards/admin.guard';
+
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: "full" },
     { path: 'home', component:  HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'AltaVeterinario', 
-        component: AltaVeterinarioComponent,
+    loadComponent: () => import('./components/alta-veterinario/alta-veterinario.component')
+    .then(b => b.AltaVeterinarioComponent),
         data: {midata: "datos de ruta"},
         canActivate: [loggedGuard]
     },
@@ -17,4 +19,9 @@ export const routes: Routes = [
         .then(b => b.VeterinariosComponent),
         canActivate: [loggedGuard]
     },
+    { path: 'animales', 
+        loadComponent: () => import('./components/animales/animales.component')
+        .then(b => b.AnimalesComponent),
+        canActivate: [adminGuard]
+      },
 ];

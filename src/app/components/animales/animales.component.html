@@ -1,0 +1,44 @@
+<div id="contenedor principal" 
+        class="lg:h-full min-h-screen">
+
+    <div class="mt-auto items-center justify-center w-full h-full gap-20">
+        <div class="mt-auto items-center content-center text-center">
+            <div class="mt-10">
+
+                <h1 class="mt-auto pb-10 text-center uppercase text-2xl text-white">ANIMALES</h1>
+            
+            </div>
+
+            <div class="md:flex lg:gap-5 h-full px-6 items-center content-center text-center mt-auto mx-auto">
+                
+                <div id="col1" class="items-center content-center lg:w-1/3 pb-4 h-[500px] overflow-y-scroll">
+
+                    <app-lista-animales (seleccion)="seleccion_animales( $event );"></app-lista-animales>
+
+                </div>
+
+                <div  id="col2" class="items-center lg:w-2/3 pb-4 h-[500px] overflow-y-scroll">
+
+                    <div class="w-full px-auto justify-evenly gap-10">
+
+                        <app-alta-animal></app-alta-animal>
+
+                        <app-modificar-animal></app-modificar-animal>
+
+                        <app-eliminar-animal></app-eliminar-animal>
+
+                    </div>
+
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+<div></div>
+
+
+

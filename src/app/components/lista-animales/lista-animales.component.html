@@ -1,0 +1,27 @@
+@for(animal of lista_animales; track indice; let indice = $index)
+{
+
+    <div
+      role="button"
+      class="text-white hover:text-black flex w-full items-center 
+                rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100
+                active:bg-slate-100"
+      (click)="elegir_animal(animal)"
+    >
+      
+      <div class="mr-4 grid place-items-center">
+             
+      </div>
+      <div class="text-left flex gap-2">
+        <h6 class="font-small">
+          {{ animal.nombre }}
+        </h6>
+        <p class="text-gray-500 hover:text-black">{{ animal.tipo }}</p>
+        <p class="text-gray-500 hover:text-black"> {{animal.peso_promedio}}</p>
+        <p class="text-gray-500 hover:text-black"> {{animal.patas}}</p>
+        <p class="text-gray-500 hover:text-black">{{ animal.id }}</p>
+      </div>
+    
+    </div>
+    
+}
