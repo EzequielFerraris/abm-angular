@@ -1,0 +1,110 @@
+<main>
+
+    <section class="relative block" style="height: 300px;">
+          
+      <div class="absolute top-0 w-full h-full bg-center bg-cover">
+        <span class="w-full h-full absolute">
+        </span>
+      </div>
+  
+    </section>
+  
+    <section class="relative py-16">
+          
+      <div class="container mx-auto px-4">
+        <div class="relative flex flex-col min-w-0 break-words bg-violeta w-full mb-6 shadow-xl rounded-lg -mt-64">
+          <div class="px-6">
+            
+            <div id="nuevo_form" class="mb-20">
+              <h3 class="text-3xl text-center md:text-4xl font-semibold leading-normal text-white md:mb-10 font-comic uppercase">
+                ALTA VETERINARIO
+              </h3>
+
+              <form [formGroup]="form" 
+                    (ngSubmit)="enviar()" 
+                    class="max-w-md mx-auto">
+
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 w-full mb-5 form-control-group">
+                      <input type="text" name="nombre" id="nombre" formControlName="nombre"
+                              class="form-control block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-500 focus:outline-none focus:ring-0 focus:border-fuchsia-500 peer" 
+                              placeholder=" " required />
+                      <ng-container *ngIf="this.form.get('nombre')?.hasError('pattern')">
+                          <small class="text-fuchsia-500">Debe contener solo letras</small>
+                      </ng-container>
+                      
+                      <label for="nombre" class="form-label peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Nombre</label>
+                  </div>
+                  
+                </div>
+
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 w-full mb-5 form-control-group">
+                      <input type="text" name="dni" id="dni" formControlName="dni"
+                              class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-500 focus:outline-none focus:ring-0 focus:border-fuchsia-500 peer" placeholder=" " required />
+                              <ng-container *ngIf="this.form.get('dni')?.hasError('pattern')">
+                                <small class="text-fuchsia-500">Número inválido</small>
+                          </ng-container>
+                      <label for="dni" 
+                              class="form-label peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                        Dni</label>
+                  </div>
+                </div>
+                
+                <div class="relative z-0 w-full mb-5 form-control-group pb-8">
+                    <input type="number" name="edad" id="edad" formControlName="edad" min="1" max="99"
+                            class="form-control block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-500 focus:outline-none focus:ring-0 focus:border-fuchsia-500 peer" placeholder=" " required />
+                    <ng-container *ngIf="this.form.get('edad')?.hasError('min')">
+                          <small class="text-fuchsia-500">Debe ser mayor de 21 años</small>
+                    </ng-container>
+                    <ng-container *ngIf="this.form.get('edad')?.hasError('max')">
+                        <small class="text-fuchsia-500">Debe ser menor de 65 años</small>
+                    </ng-container>
+                    <label for="edad" class="form-label peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                      Edad</label>
+                </div>
+                
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-5 form-control-group">
+                        <input type="text" name="matricula" id="matricula" formControlName="matricula"
+                                class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-500 focus:outline-none focus:ring-0 focus:border-fuchsia-500 peer" placeholder=" " required />
+                                <ng-container *ngIf="this.form.get('matricula')?.hasError('pattern')">
+                                  <small class="text-fuchsia-500">Número inválido. Debe tener 6 cifras.</small>
+                            </ng-container>
+                        <label for="matricula" 
+                                class="form-label peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-fuchsia-500 peer-focus:dark:text-fuchsia-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                          Matrícula</label>
+                    </div>
+                  </div>
+
+                  <label class="inline-flex items-center mb-5 cursor-pointer">
+                    <input type="checkbox" value="" id="domicilio" name="domicilio" formControlName="domicilio" checked
+                    class="sr-only peer">
+                    <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-fuchsia-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:w-5 after:h-5 after:transition-all dark:border-gray-600 peer-checked:bg-fuchsia-500"></div>
+                    <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Realiza domicilios</span>
+                  </label>
+
+                <div class="pb-5">
+                    <p class="text-blanco">País seleccionado: {{pais_elegido}}</p>
+                </div>
+                <div class="items-center content-center w-full pb-4 h-[200px] overflow-y-scroll">
+                    <app-tabla-paises (seleccion)="elegir_pais( $event )"></app-tabla-paises>
+                </div>
+
+                <button
+                        class="font-comic bg-white text-black active:bg-negro active:text-white text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 mt-10 w-full"
+                        type="submit"
+                        [disabled]="form.invalid"
+                        [hidden]="form.invalid">
+                        ENVIAR
+                </button>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+</main>

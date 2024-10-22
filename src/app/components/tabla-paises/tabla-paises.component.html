@@ -1,0 +1,35 @@
+
+@for(pais of lista_paises; track indice; let indice = $index)
+{
+    @if(pais.continents[0] == 'Asia' || pais.continents[0] == 'North America' || pais.continents[0] == 'South America')
+    {
+        <div
+      role="button"
+      class="text-white hover:text-black flex w-full items-center 
+                rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100
+                active:bg-slate-100"
+      (click)="elegir_pais(pais.translations.spa.official)"
+      
+    >
+      
+      <div class="mr-4 grid place-items-center">
+        <img
+          src="{{ pais.flags.png }}"
+          class="relative inline-block h-12 w-12 !rounded-full  object-cover object-center"
+        />
+      
+      </div>
+      <div>
+        <h6 class="font-small">
+          {{ pais.translations.spa.official }}
+        </h6>
+      </div>
+    
+    </div>
+    }
+    
+    
+}
+
+
+
