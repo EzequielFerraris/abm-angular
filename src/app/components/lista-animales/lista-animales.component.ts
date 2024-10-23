@@ -14,7 +14,6 @@ export class ListaAnimalesComponent {
 
   private sub!:Subscription;
   public lista_animales:any[] = [];
-  public lista_animales2:any[] = [];
   @Output() seleccion = new EventEmitter<object>();
 
   constructor(private animales : AnimalesABMService)
@@ -34,7 +33,7 @@ export class ListaAnimalesComponent {
   {
     let col = this.animales.get_collection();
 
-    const filtered = query(col,orderBy("codigo"));
+    const filtered = query(col,orderBy("nombre"));
 
     const observable = collectionData(filtered);
   
