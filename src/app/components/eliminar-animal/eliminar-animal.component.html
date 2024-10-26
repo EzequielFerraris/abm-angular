@@ -1,1 +1,28 @@
-<p>eliminar-animal works!</p>
+@if(this.animal_seleccionado["nombre"])
+{
+        <div class="mx-auto max-w-sm
+                  bg-white border border-gray-200 
+                    rounded-lg shadow dark:bg-gray-800 dark:border-gray-700
+                    my-8">
+            
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight 
+                             text-gray-900 dark:text-white">
+                        {{this.animal_seleccionado.nombre}}
+                    </h5>
+                </a>
+                <ul class="text-start">
+                    <li>Tipo: {{this.animal_seleccionado.tipo }}</li>
+                    <li>Peso: {{this.animal_seleccionado.peso_promedio}}</li>
+                    <li>Patas: {{this.animal_seleccionado.patas}}</li>
+                    <li>ID: {{this.animal_seleccionado.id}}</li>
+                </ul>
+                <button
+                    class="font-comic bg-white text-black active:bg-negro active:text-white text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 mt-10 w-full"
+                    (click)="eliminar(this.animal_seleccionado.id)">
+                    ELIMINAR
+                </button>
+            </div>
+        </div>    
+}

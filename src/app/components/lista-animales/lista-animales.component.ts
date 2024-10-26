@@ -13,7 +13,7 @@ import { collectionData, orderBy, query} from '@angular/fire/firestore';
 export class ListaAnimalesComponent {
 
   private sub!:Subscription;
-  public lista_animales:any[] = [];
+  public lista_animales: any = [];
   @Output() seleccion = new EventEmitter<object>();
 
   constructor(private animales : AnimalesABMService)
@@ -31,18 +31,15 @@ export class ListaAnimalesComponent {
   
   get_animales()
   {
-    let col = this.animales.get_collection();
-
-    const filtered = query(col,orderBy("nombre"));
-
-    const observable = collectionData(filtered);
+    const observable = this.animales.get_collection();
   
-      this.sub = observable.subscribe((respuesta: any) => {
+    this.sub = observable.subscribe((respuesta: any) => {
 
-        this.lista_animales = respuesta;
-
+    this.lista_animales = respuesta;
+    console.log(respuesta);
       });
-  }
+  } 
+}
 
  
-}
+

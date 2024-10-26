@@ -17,7 +17,6 @@ export class AnimalesComponent {
 
   seleccion_animales( $event: object ) {
     this.animal_seleccionado = $event;
-    console.log($event);
   }
 
 }
